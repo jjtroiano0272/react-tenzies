@@ -25,6 +25,10 @@ export default function Main(props) {
 
   useEffect(() => {
     dice.every((item) => item.isHeld) && setGameWon(true);
+    if (gameWon) {
+      setTimerIsPaused(true);
+      setTimerIsActive(false);
+    }
 
     let interval = null;
 
