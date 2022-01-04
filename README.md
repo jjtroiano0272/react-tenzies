@@ -1,6 +1,13 @@
 ## Additions (+)
 
+- [ ] Render dice as a table instead?
 - [ ] Show user's high score and all-time high score data
+- [ ] Some goofy anime-cat that shows up from the bottom of screen overlay on win
+- [ ] Dice should have faces on them
+- [ ] Dice-roll animation on 'roll'
+- [ ] Roll Button should be bigger on mobile
+- [ ] Implement timer. It start when the first roll is thrown
+- [ ] hotkeys
 
 ## Things to look out for/Notes
 
