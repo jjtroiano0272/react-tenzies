@@ -4,12 +4,11 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import Dice from './Dice';
 import Die from './Die';
 import Stopwatch from './Stopwatch';
+import Shake from 'react-reveal/Shake';
 
 export default function Main(props) {
   useEffect(() => {
-    localStorage.getItem('dice')
-      ? localStorage.getItem('dice')
-      : console.log('nothing here');
+    localStorage.getItem('dice') ? localStorage.getItem('dice') : console.log('No dice found.');
   }, []);
 
   const [dice, setDice] = useState(allNewDice(10));
@@ -24,7 +23,7 @@ export default function Main(props) {
   const leaderBoard = {};
 
   useEffect(() => {
-    dice.every((item) => item.isHeld) && setGameWon(true);
+    dice.every(item => item.isHeld) && setGameWon(true);
     if (gameWon) {
       setTimerIsPaused(true);
       setTimerIsActive(false);
@@ -34,7 +33,7 @@ export default function Main(props) {
 
     if (timerIsActive && timerIsPaused === false) {
       interval = setInterval(() => {
-        setTime((time) => time + 10);
+        setTime(time => time + 10);
       }, 10);
     } else {
       clearInterval(interval);
@@ -66,16 +65,16 @@ export default function Main(props) {
       setTimerIsPaused(false);
     }
     setRollCount(rollCount + 1);
-    setDice((prevDice) =>
-      prevDice.map((die) => {
+    setDice(prevDice =>
+      prevDice.map(die => {
         return die.isHeld ? die : generateRandDie();
       })
     );
   }
 
   function holdDice(id) {
-    setDice((prevDice) =>
-      prevDice.map((die) => {
+    setDice(prevDice =>
+      prevDice.map(die => {
         return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
       })
     );
@@ -96,7 +95,7 @@ export default function Main(props) {
         <h1>Tenzies</h1>
         {!gameWon ? (
           <div className='row'>
-            {dice.map((item) => (
+            {dice.map(item => (
               <div className='col dice-group my-2' key={item.id}>
                 <Die
                   key={item.id}
@@ -107,32 +106,24 @@ export default function Main(props) {
               </div>
             ))}
             <p className='my-4'>
-              Keep rolling the dice until all dice match! Click on one or more
-              dice to keep those from being rolled.
+              Keep rolling the dice until all dice match! Click on one or more dice to keep those
+              from being rolled.
             </p>
-            <button
-              className='btn btn-sizing btn-primary btn-fluid'
-              onClick={rollDice}
-            >
+            <button className='btn btn-sizing btn-primary btn-fluid' onClick={rollDice}>
               <h2>ROLL</h2>
             </button>
           </div>
         ) : (
           <div>
             <h1>You won!</h1>
-            <button
-              className='btn btn-md btn-success'
-              onClick={() => resetGame()}
-            >
+            <button className='btn btn-md btn-success' onClick={() => resetGame()}>
               Play again
             </button>
           </div>
         )}
         <p className='text-muted small my-3'>
           {rollCount < 30
-            ? `You've rolled ${rollCount} times in ${Math.floor(
-                time / 1000
-              )} seconds.`
+            ? `You've rolled ${rollCount} times in ${Math.floor(time / 1000)} seconds.`
             : `Geez, maybe restart?`}
         </p>
         <p onClick={() => resetGame()} className='text-muted small mt-3'>

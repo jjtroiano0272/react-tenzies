@@ -1,13 +1,28 @@
 ## Additions (+)
 
-- [ ] Render dice as a table instead?
-- [ ] Show user's high score and all-time high score data
-- [ ] Some goofy anime-cat that shows up from the bottom of screen overlay on win
-- [ ] Dice should have faces on them
+- [x] Dice should have faces on them
+- [x] Render dice as a table instead?
+- [x] Roll Button should be bigger on mobile
+- [x] Implement timer. It start when the first die is held or dice are rolled
 - [ ] Dice-roll animation on 'roll'
-- [ ] Roll Button should be bigger on mobile
-- [ ] Implement timer. It start when the first roll is thrown
+- [ ] dark mode on main component
+- [ ] Show user's high score and all-time high score data
+  - [ ] Store scores in localStorage.
+- [ ] Some goofy anime-cat that shows up from the bottom of screen overlay on win
 - [ ] hotkeys
+- [ ] MUI design
+
+#### Cat on win & shake feedback
+
+- [ ] https://elrumordelaluz.github.io/csshake/
+- [ ] Google happy cat image
+
+#### Dice
+
+- [ ] https://dev.to/kimiakamrava/dice-roller-app-with-state-and-props-2ii5
+- [ ] https://www.npmjs.com/package/react-flip-move
+- [ ] Full cascading dark-mode support
+- [ ] https://codepen.io/ajbot/pen/Wxaqpv
 
 ## Things to look out for/Notes
 
